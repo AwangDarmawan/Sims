@@ -1,0 +1,122 @@
+/* Form Profile */
+
+.ubah-pass-tagline {
+    font-size: 24px;
+    margin-top: 20px;
+    font-weight: 700;
+    font-family: "Montserrat", sans-serif;
+  }
+  .input-profile {
+    display: grid;
+    justify-content: center;
+    
+  }
+  
+  
+  .header-border {
+    display: flex;
+    justify-content: center;
+  }
+  .berder {
+    width: 90px;
+    height: 91px;
+    border-radius: 50%;
+    border:  3px !important;
+    
+  }
+  .img-berder{
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    border: !important;
+    
+  }
+  
+  .text-label {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+  }
+  
+  .form-control {
+    padding: 12px 16px;
+    height: 48px;
+    gap: 16px;
+    width: 600px;
+    
+  }
+  
+  .btn-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid #6148ff;
+    background: #fff;
+    right: 22.2%;
+    bottom: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:70px;
+    
+  }
+
+  
+  .icon-img {
+    color: #6148ff;
+  }
+  
+  .btn-profile {
+    padding: 12px;
+    width: 600px;
+    gap: 8px;
+   
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+    border: none;
+    background: #f75539!important;;
+    color: #fff;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    transition: 0.2s ease-in;
+  }
+  .btn-Logout{
+    padding: 12px;
+    width: 600px;
+    gap: 8px;
+   
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+    /* background: #f75539!important; */
+    color:#f75539 ;
+    background-color: white;
+    border:solid 3px #f75539 !important;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    transition: 0.2s ease-in;
+  }
+  
+  .btn-profile:hover {
+    background: #489cff;
+  }
+  
+  
+  @media screen and (max-width: 768px) {
+    .btn-img {
+      
+      top: 42.1%;
+      left: 54%;
+    }
+    .form-control {
+      width: 250px;
+    }
+    .btn-profile {
+      width: 250px;
+    }
+    .btn-Logout {
+        width: 250px;
+      }
+  }
+  

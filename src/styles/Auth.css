@@ -1,0 +1,92 @@
+.auth-section {
+    overflow: hidden !important;
+  }
+  .auth-wrapper {
+    height: 100vh;
+  }
+  
+  .auth-form-wrapper{
+    width: 50%;
+  }
+  .txt-sims{
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .txtmasuk {
+    font-family: "Montserrat", sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    align:center
+  }
+  
+  .fm .form-control-login{
+    width: 100%;
+    background: transparent;
+    border:none;
+  }
+  
+  .input-form-user::placeholder {
+    color: #8a8a8a !important;
+  }
+  
+  .input-form-user{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+  }
+  
+  .input-form-user .form-control{
+    background: transparent;
+    outline: none;
+    width: 100%;
+  
+  }
+  
+  .form-control:focus{
+    box-shadow: none;
+    border:none
+  }
+  
+  .input-form-user .icon-show{
+    margin-right: 15px;
+  }
+  .key{
+    width:4%;
+    
+  }
+  
+  .btn-masuk {
+    font-family: "Poppins", sans-serif;
+    color: white !important;
+    background-color: #f75539!important;
+   
+    size: 14px;
+  }
+  .txt-belum {
+    font-family: "Poppins", sans-serif;
+    size: 14px;
+    color:#a19191!important;
+    
+    
+  }
+  .link{
+    font-family: "Poppins", sans-serif;
+    size: 14px;
+    color: #f75539!important;
+    border:none;
+  }
+  .Ilus{
+    width:97%;
+    height : 100%
+  }
+  
+  @media (max-width: 768px) {
+    .account-block {
+      display: none;
+    }
+  }
+  
