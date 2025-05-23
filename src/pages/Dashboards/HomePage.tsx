@@ -1,12 +1,13 @@
 
 import Ppob from '../../components/PPOB/Ppob'
-import Promo from '../../components/Promo/Promo'
+
+import Banner from '../../components/Banner/Banner'
 
 function HomePage() {
   return (
     <>
       <Ppob/>
-      <Promo/>
+      <Banner/>
     </>
   )
 }

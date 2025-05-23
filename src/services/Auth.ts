@@ -1,11 +1,5 @@
-import axios from "axios";
-const baseUrl = import.meta.env.VITE_BASE_URL ;
-const api = axios.create({
-  baseURL: baseUrl,
-  headers: {
-    'Content-Type': 'application/json',
-  },
-});
+
+import api from "./Axios"
 
 export interface  IRegisterForm {
   email: string;
@@ -21,7 +15,25 @@ export interface IRegisterResponse {
   data: null; 
 }
 
-export const registerUser = (formData: Omit <IRegisterForm, 'confirmPassword'>) => {
+export interface ILoginForm {
+  email: string;
+  password: string | number;
+}
+
+export interface IAuthResponse {
+  status: number;
+  message: string;
+  data: {
+    token: string;
+  };
+}
+
+export const ApiRegister = (formData: Omit <IRegisterForm, 'confirmPassword'>) => {
   return api.post<IRegisterResponse>('/registration', formData);
+};
+
+export const ApiLogin = async (formData: ILoginForm): Promise<IAuthResponse> => {
+  const response = await api.post<IAuthResponse>("/login", formData);
+  return response.data; 
 };
 

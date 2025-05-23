@@ -50,7 +50,7 @@
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    border: 1px solid #6148ff;
+    border: 1px solid #f75539!important; ;
     background: #fff;
     right: 22.2%;
     bottom: 100%;
@@ -63,17 +63,17 @@
 
   
   .icon-img {
-    color: #6148ff;
+    color: #f75539!important;;
   }
   
-  .btn-profile {
+  .btn-Logout {
     padding: 12px;
     width: 600px;
     gap: 8px;
    
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
     border: none;
-    background: #f75539!important;;
+    background: #f75539!important;
     color: #fff;
     font-family: Montserrat;
     font-size: 16px;
@@ -81,7 +81,7 @@
     line-height: 24px;
     transition: 0.2s ease-in;
   }
-  .btn-Logout{
+  .btn-Profile{
     padding: 12px;
     width: 600px;
     gap: 8px;
@@ -112,7 +112,7 @@
     .form-control {
       width: 250px;
     }
-    .btn-profile {
+    .btn-Profile {
       width: 250px;
     }
     .btn-Logout {
