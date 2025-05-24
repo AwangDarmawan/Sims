@@ -1,9 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { ApiGetSaldo, type SaldoUser } from "../services/Saldo";
+import { ApiGetSaldo, ApiPostTopup, type SaldoUser, type TopUpRequest } from "../services/transaksi";
 import { handleAxiosError } from "../utils/errorhandle";
 
 interface TransaksiState {
-  
   data: SaldoUser | null;
   loading: boolean;
   error: string | null;
@@ -30,6 +29,20 @@ export const fetchSaldo = createAsyncThunk(
       }
     }
   );
+
+  // POST TOPUP
+export const postTopUp = createAsyncThunk(
+  "transaksi/postTopUp",
+  async (data: TopUpRequest, thunkAPI) => {
+    try {
+      const res = await ApiPostTopup(data);
+      return res.data; // SaldoUser
+    } catch (error) {
+      const message = handleAxiosError(error);
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
  
 
 
@@ -53,6 +66,21 @@ const transaskiSlice = createSlice({
         state.loading = false;
         state.error = action.payload as string;
       });
+
+       builder
+       .addCase(postTopUp.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(postTopUp.fulfilled, (state, action) => {
+        state.loading = false;
+        state.data = action.payload;
+      })
+      .addCase(postTopUp.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload as string;
+      });
+  
   },
 });
 
