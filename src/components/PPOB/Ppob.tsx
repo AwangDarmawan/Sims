@@ -1,81 +1,46 @@
-import musik from "../../assets/Musik.png";
-import  pulsa from "../../assets/pulsa.png";
-import  pdam from "../../assets/PDAM.png";
-import  listrik from "../../assets/Listrik.png";
-import  kurban from "../../assets/Kurban.png";
-import  televisi from "../../assets/Televisi.png";
-import  vocher from "../../assets/Voucher Makanan.png";
-import  Zakat  from "../../assets/Zakat.png";
-import  game from "../../assets/Game.png";
-import paket from "../../assets/Paket Data.png";
+
+
+import { useAppDispatch, useAppSelector } from "../../utils/hook"; 
+import { useEffect, } from "react";
+
+import { type IApiPpob } from "../../services/Ppob"
+import { fetchPpob } from "../../features/ppobSlice";
+import { Link } from "react-router-dom";
 
 function Ppob() {
+  const dispatch = useAppDispatch();
+  
+    const { data:Ppobs ,loading:loadingPpob , error:errorPpob } = useAppSelector((state) => state.ppob);
+  
+     useEffect(() => {
+        dispatch(fetchPpob());
+      
+      }, [dispatch]);
+  
+      if (errorPpob) return <p style={{ color: "red" }}>{errorPpob}</p>;
+  if (loadingPpob) return <p>Loading banner...</p>;
   return (
     <>
        <section className='container'>
         <div className='row item-center'>
-        <div className='col-lg-1 col-md-2 col-sm-4  text-center'>
-            <img src={pdam} alt="" />
-            <p>PBB</p>
+          {Ppobs.map((item: IApiPpob , index: number) => (
+        <div className='col-lg-1 col-md-2 col-sm-4  text-center' key={index}>
+          <Link  to={`/pembayaran/${item.service_name}`} 
+             state={{ icon: item.service_icon, name: item.service_name , 
+            //  tarif: item.service_tariff 
+             tarif: item.service_tariff
+             }}>
+            <img src={item.service_icon} alt="" />
+            
+            </Link>
+            {/* <p>{item.service_code}</p> */}
+            <p className="font-bold" style={{ fontSize: "0.6rem", fontWeight:"semi-bold" }}>{item.service_code}</p>
+            {/* <p>{item.service_tariff}</p> */}
             
             </div>
-            <div className='col-lg-1 col-md-2 col-sm-4 text-center ' >
-            <img src={pulsa} alt="" />
-            <p>pulsa</p>
             
-            </div>
-            <div className='col-lg-1 col-md-2 col-sm-4 text-center' >
-            <img src={listrik} alt="" />
-            <p>listrik</p>
-            
-            </div>
-            <div className='col-lg-1 col-md-2 col-sm-4 text-center' >
-            <img src={musik} alt="" />
-            <p>musik</p>
-            
-            </div>
-            <div className='col-lg-1 col-md-2 col-sm-4 text-center' >
-            <img src={Zakat} alt="" />
-            <p>zakat</p>
-            
-            </div>
-            <div className='col-lg-1 col-md-2 col-sm-4 text-center' >
-            <img src={game} alt="" />
-            <p>game</p>
-            
-            </div>
-            <div className='col-lg-1 col-md-2 col-sm-4 text-center' >
-            <img src={televisi} alt="" />
-            <p>televisi</p>
-            
-            </div>
-            <div className='col-lg-1 col-md-2 col-sm-4 text-center' >
-            <img src={kurban} alt="" />
-            <p>kurban</p>
-            
-            </div>
-            <div className='col-lg-1 col-md-2 col-sm-4 text-center' >
-            <img src={vocher} alt="" />
-            <p>Voucher</p>
-            
-            </div>
-            <div className='col-lg-1 col-md-2 col-sm-4 text-center' >
-            <img src={paket} alt="" />
-            <p>Paket Data</p>
-            
-            </div>
-            <div className='col-lg-1 col-md-2 col-sm-4 text-center' >
-            <img src={pulsa} alt="" />
-            <p>Pulsa</p>
-            
-            </div>
-            <div className='col-lg-1 col-md-2 col-sm-4 text-center' >
-            <img src={listrik} alt="" />
-            <p>listrik</p>
-            
-            </div>
 
-            
+             ))}
         </div>
         
     </section>

@@ -38,7 +38,7 @@ function Saldo() {
         <div className='col-lg-6 col-md-6  col-sm-12  my-5'>
           <img 
           src={profile.profile_image } 
-          alt="Avatar" className='profil'/>
+          alt="Avatar" className="img-berder" />
           <h4 className=' txt-selamat mt-3'>Selamat Datang,</h4>
           <h1 className='txt-nama fw-bold'> {profile.first_name} {profile.last_name}</h1>
         </div>

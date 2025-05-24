@@ -11,6 +11,7 @@ import ProfilPage from './pages/Dashboards/ProfilPage';
 import AlltransaksiPage from './pages/Dashboards/AlltransaksiPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import PembayaranPage from './pages/Dashboards/PembayaranPage';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/home" element={<HomePage/>} />
         <Route path="/topup" element={<TopupPage />} />
         <Route path="/transaksi" element={<AlltransaksiPage />} />
+        <Route path="/pembayaran/:service_name" element={<PembayaranPage />} />
       </Route>
 
       <Route element={<NavbarOnlyLayout/>}>

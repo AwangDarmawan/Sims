@@ -17,6 +17,13 @@
     border: solid 3px #f75539 !important;
     background-color:#f75539;
 }
+.img-berder{
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    border: !important;
+    
+  }
 .txt-saldo{
     color:white;
     /* font:bold; */
