@@ -4,13 +4,15 @@ export interface SaldoUser {
   balance:number
 }
 
-export interface SaldoResponse {
+export interface TransaksiResponse {
   status: number;
   message: string;
   data: SaldoUser; 
 }
 
-export const ApiGetSaldo = async (): Promise<SaldoResponse> => {
-  const response = await api.get<SaldoResponse>("/balance");
+export const ApiGetSaldo = async (): Promise<TransaksiResponse> => {
+  const response = await api.get<TransaksiResponse>("/balance");
   return response.data;
 };
+
+

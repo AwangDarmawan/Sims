@@ -2,13 +2,14 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { ApiGetSaldo, type SaldoUser } from "../services/Saldo";
 import { handleAxiosError } from "../utils/errorhandle";
 
-interface SaldoState {
+interface TransaksiState {
+  
   data: SaldoUser | null;
   loading: boolean;
   error: string | null;
 }
 
-const initialState: SaldoState = {
+const initialState: TransaksiState = {
   data: null,
   loading: false,
   error: null,
@@ -32,10 +33,12 @@ export const fetchSaldo = createAsyncThunk(
  
 
 
-const saldoSlice = createSlice({
-  name: "saldo",
+const transaskiSlice = createSlice({
+  name: "transaksi",
   initialState,
-  reducers: {},
+  reducers: {
+    
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchSaldo.pending, (state) => {
@@ -53,4 +56,4 @@ const saldoSlice = createSlice({
   },
 });
 
-export default saldoSlice.reducer;
+export default transaskiSlice.reducer;

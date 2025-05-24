@@ -1,5 +1,5 @@
 // import "../Style/CardHistori.css"
-function Alltransaksi() {
+function History() {
   return (
     <>
        <div className='container'>
@@ -23,4 +23,4 @@ function Alltransaksi() {
   )
 }
 
-export default Alltransaksi
+export default History

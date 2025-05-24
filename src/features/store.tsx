@@ -3,18 +3,17 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import authReducer from "./loginSlice"
 import profilReducer from "./profilSlice"
-import saldoReducer from "./saldoSlice"
+import transaksiReducer from "./transaksiSlice"
 import bannerReducer from "./bannerSlice"
 import ppobReducer from "./ppobSlice"
-import topupReducer from "./topupSlice"
+
 export const Store = configureStore({
   reducer: {
     auth: authReducer,
     profile: profilReducer, 
-    saldo: saldoReducer,
+    transaksi: transaksiReducer,
     banner : bannerReducer, 
     ppob : ppobReducer,
-    topup: topupReducer,
   },
 });
 

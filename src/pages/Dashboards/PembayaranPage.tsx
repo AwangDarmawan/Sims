@@ -1,4 +1,4 @@
-import Pembayaran from '../../components/Pembayaran/Pembayaran'
+import Pembayaran from '../../components/Alltransaksi/Pembayaran'
 
 function PembayaranPage() {
   return (

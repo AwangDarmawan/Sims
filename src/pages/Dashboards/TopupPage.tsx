@@ -1,4 +1,4 @@
-import Topup from "../../components/Topup/Topup"
+import Topup from "../../components/Alltransaksi/Topup"
 
 
 function TopupPage() {

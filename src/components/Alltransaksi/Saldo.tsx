@@ -4,7 +4,9 @@ import "../../styles/Home.css"
 import { EyeFill, EyeSlashFill } from "react-bootstrap-icons";
 import { useAppDispatch, useAppSelector } from "../../utils/hook"; 
 import { fetchProfile } from "../../features/profilSlice";
-import { fetchSaldo } from "../../features/saldoSlice";
+import { fetchSaldo } from "../../features/transaksiSlice";
+
+
 
 function Saldo() {
     const [showSaldo, setShowSaldo] = useState(false);
@@ -13,7 +15,7 @@ function Saldo() {
   const { data:profile ,loading:loadingProfile , error:errorProfile } = useAppSelector((state) => state.profile);
 
   const { data: saldo, loading: loadingSaldo, error: errorSaldo } = useAppSelector(
-    (state) => state.saldo
+    (state) => state.transaksi
   );
 
 
@@ -24,6 +26,7 @@ function Saldo() {
   }, [dispatch]);
 
     // if (loading) return <p>Loading...</p>;
+
       if (loadingProfile|| loadingSaldo) return <p>Loading...</p>;
   if (errorProfile) return <p style={{ color: "red" }}>{errorProfile}</p>;
    if (errorSaldo) return <p style={{ color: "red" }}>{errorSaldo}</p>;
@@ -49,7 +52,7 @@ function Saldo() {
             <div className='d-flex'>
             <h4 className='fw-bold text-white'>RP</h4>
             <h4 className='text-white ms-2 my-0'>
-                  {/* {showSaldo ? "1500000" : '••••••••'} */}
+                 
                    {showSaldo
                     ? saldo?.balance?.toLocaleString("id-ID")
                     : "••••••••"}

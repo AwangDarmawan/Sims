@@ -8,7 +8,7 @@ import NavbarOnlyLayout from './layouts/NavbarLayout';
 import HomePage from './pages/Dashboards/HomePage';
 import TopupPage from './pages/Dashboards/TopupPage';
 import ProfilPage from './pages/Dashboards/ProfilPage';
-import AlltransaksiPage from './pages/Dashboards/AlltransaksiPage';
+import HistoryPage from './pages/Dashboards/HistoryPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import PembayaranPage from './pages/Dashboards/PembayaranPage';
@@ -24,7 +24,7 @@ function App() {
       <Route element={<MainLayout/>}>
         <Route path="/home" element={<HomePage/>} />
         <Route path="/topup" element={<TopupPage />} />
-        <Route path="/transaksi" element={<AlltransaksiPage />} />
+        <Route path="/transaksi" element={<HistoryPage />} />
         <Route path="/pembayaran/:service_name" element={<PembayaranPage />} />
       </Route>
 

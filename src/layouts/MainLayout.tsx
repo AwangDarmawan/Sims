@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar/Navbar'
-import Saldo from '../components/Saldo/Saldo'
+import Saldo from '../components/Alltransaksi/Saldo'
 const MainLayout = () => {
   return (
     <>
