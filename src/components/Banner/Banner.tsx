@@ -21,8 +21,8 @@ if (loadingBanner) return <p>Loading banner...</p>;
   return (
     <>
     <section className="container my-4">
-  <span className="fw-bold ">Temukan Promo Menarik</span>
-  <div className="row "> {/* g-3 = gutter spacing */}
+  <span className="fw-bold categori">Temukan Promo Menarik</span>
+  <div className="row ">
     {banners.map((item: IApiBanner, index: number) => (
       <div
         className="col-lg-3 col-md-4 col-sm-6 g-2 mt-3"

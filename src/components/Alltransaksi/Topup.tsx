@@ -1,111 +1,99 @@
-import { useState } from "react";
+
+import { useForm, Controller } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { useAppDispatch, useAppSelector } from "../../utils/hook";
 import { postTopUp } from "../../features/transaksiSlice";
 
+import { topupSchema } from "./TopupSchema";
+import { formatRupiah, parseRupiah } from "../../utils/rupiah";
+
+type FormData = {
+  amount: string;
+};
+
 function Topup() {
-
   const dispatch = useAppDispatch();
-  const [amount, setAmount] = useState("");
-  const { loading,error } = useAppSelector((state) => state.transaksi);
+  const { loading, error } = useAppSelector((state) => state.transaksi);
 
-    const handlePresetClick = (value: number) => {
-    setAmount(value.toString());
+  const {
+    control,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+  } = useForm<FormData>({
+    resolver: yupResolver(topupSchema),
+    defaultValues: {
+      amount: "",
+    },
+  });
+
+  const onSubmit = (data: FormData) => {
+    const nominal = parseRupiah(data.amount);
+    dispatch(postTopUp({ top_up_amount: nominal }));
+    setValue("amount", ""); 
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setAmount(e.target.value); 
-  };
+  const presetValues = [10000, 20000, 50000, 100000, 250000, 500000];
 
-  const handleTopUp = () => {
-    const topUpAmount = Number(amount);
-    if (!topUpAmount || topUpAmount <= 0) {
-      alert("Masukkan nominal top up yang valid!");
-      return;
-    }
-
-    // dispatch async thunk postTopup dengan payload
-    dispatch(postTopUp({ top_up_amount: topUpAmount }));
-  };
   return (
-    <>
-       <div className='container'>
-    <span >Silakan masukan</span>
-    <h4 className='fw-bold'>Nominal Top Up</h4>
-      <div className="row my-3 ">
-        <div className='col-lg-5 col-md-5 col-10 d-flex flex-column '>
-             
-            <input className='border-2 my-2 ' 
-            type="text"
-            placeholder="Masukan nominal TopUp"
-            style={{ height: "40px", width: "100%"}}
-              value={amount}
-            onChange={handleInputChange}
+    <div className="container">
+      <span>Silakan masukan</span>
+      <h4 className="fw-bold">Nominal Top Up</h4>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="row my-3">
+          <div className="col-lg-5 col-md-5 col-10 d-flex flex-column ">
+            <Controller
+              name="amount"
+              control={control}
+              render={({ field }) => (
+                <input
+                  {...field}
+                  type="text"
+                  placeholder="Masukan nominal TopUp"
+                  className="border-2 my-2"
+                  style={{ height: "40px", width: "100%" }}
+                  value={formatRupiah(field.value)}
+                  onChange={(e) => {
+                    
+                    const rawValue = e.target.value.replace(/\D/g, "");
+                    field.onChange(rawValue);
+                  }}
+                />
+              )}
             />
+            {errors.amount && (
+              <small className="text-danger">{errors.amount.message}</small>
+            )}
 
-            <button 
-             className='border-0 fw-bold text-white mb-3 '
-             style={{ background: "#f75539",
-             height: "40px", width: "100%"}}
-             onClick={handleTopUp}
-             disabled={loading}
-            > {loading ? "Memproses..." : "Top Up"}</button>
- {error && <small className="text-danger">{error}</small>}
-        </div>
-
-        <div className="col-lg-5 col-md-4 col-10">
-          {[10000, 20000, 30000, 100000, 250000, 500000].map((val) => (
             <button
-              key={val}
-              className="border-2 text-center fw-bold mx-2 my-2"
-              style={{ height: "50px", width: "30%" }}
-              onClick={() => handlePresetClick(val)}
+              type="submit"
+              className="border-0 fw-bold text-white mb-3"
+              style={{ background: "#f75539", height: "40px", width: "100%" }}
+              disabled={loading}
             >
-              Rp.{val.toLocaleString()}
+              {loading ? "Loading..." : "Top Up"}
             </button>
-          ))}
+            {error && <small className="text-danger">{error}</small>}
+          </div>
+
+          <div className="col-lg-5 col-md-4 col-10">
+            {presetValues.map((val) => (
+              <button
+                key={val}
+                type="button"
+                className="border-2 text-center fw-bold mx-2 my-2"
+                style={{ height: "50px", width: "30%" }}
+                onClick={() => setValue("amount", val.toString())}
+              >
+                {formatRupiah(val)}
+              </button>
+            ))}
+          </div>
         </div>
-      </div>
+      </form>
     </div>
-        {/* </div>
-
-        <div className='col-lg-5 col-md-4 col-10  ' >
-        <button
-            className='border-2    text-center fw-2  mx-3 my-2' 
-            style={{ height: "50px", width:"20%" , }}  
-            >Rp.10.000 </button>
-             
-            <button 
-            className='border-2   text-center fw-2   mx-3 my-2' 
-            style={{ height: "50px", width:"20%"  }}  
-            >Rp.20.000</button>
-
-             <button
-            className='border-2  text-center fw-2  mx-3 my-2' 
-            style={{ height: "50px", width:"20%"  }}  
-            >Rp.30.000</button>
-
-            <button 
-            className='border-2  text-center fw-2  mx-3 my-2' 
-            style={{ height: "50px", width:"20%"  }}  
-            >Rp.100.000</button>
-
-
-             <button
-            className='border-2  text-center fw-2   mx-3 my-2' 
-            style={{ height: "50px", width:"20%"  }}  
-          
-            > Rp.250.000 </button>
-
-            <button
-            className='border-2  text-center fw-2 mx-3 my-2' 
-            style={{ height: "50px", width:"20%"  }}  
-            >Rp.500.000</button>
-
-        </div>
-      </div>
-      </div> */}
-    </>
-  )
+  );
 }
 
-export default Topup
+export default Topup;
+

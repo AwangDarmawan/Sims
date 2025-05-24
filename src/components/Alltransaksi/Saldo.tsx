@@ -14,7 +14,7 @@ function Saldo() {
     const dispatch = useAppDispatch();
   const { data:profile ,loading:loadingProfile , error:errorProfile } = useAppSelector((state) => state.profile);
 
-  const { data: saldo, loading: loadingSaldo, error: errorSaldo } = useAppSelector(
+  const { data: saldo, error: errorSaldo } = useAppSelector(
     (state) => state.transaksi
   );
 
@@ -27,7 +27,7 @@ function Saldo() {
 
     // if (loading) return <p>Loading...</p>;
 
-      if (loadingProfile|| loadingSaldo) return <p>Loading...</p>;
+      if (loadingProfile) return <p>Loading...</p>;
   if (errorProfile) return <p style={{ color: "red" }}>{errorProfile}</p>;
    if (errorSaldo) return <p style={{ color: "red" }}>{errorSaldo}</p>;
 
