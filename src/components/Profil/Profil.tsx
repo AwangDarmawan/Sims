@@ -24,7 +24,7 @@ function Profil() {
 
   const { register, handleSubmit, reset, formState: { errors} } = useForm<FormValues>({
   resolver: yupResolver(profilShema),
-  mode: "onTouched" // atau "onBlur"
+  mode: "onTouched" 
 });
  const [isEditMode, setIsEditMode] = useState(false);
 
@@ -82,7 +82,7 @@ function Profil() {
   
 
    if (errorProfile) return <p style={{ color: "red" }}>{errorProfile}</p>;
-  //  if (loadingProfile) return <p>Loading...</p>;
+ 
 
     console.log("poto semua ",profile)
   return (
@@ -95,8 +95,7 @@ function Profil() {
         <div className="header-border mt-5">
         
         <div className="berder border" >
-           <img 
-          //  src={profile.profile_image}
+          <img 
           src={profile.profile_image}
           alt="Profile" className="img-berder " />
         </div>
@@ -129,7 +128,8 @@ function Profil() {
            className="form-control fw-bold"
            placeholder="John Doe@gmail.com" 
            value={profile?.email}
-        readOnly
+           disabled
+           readOnly
             />
         
 
@@ -138,7 +138,7 @@ function Profil() {
           <input
           
             type="text"
-            className="form-control "
+            className="form-control fw-bold "
             placeholder="nama depan"
            
             {...register("first_name")}
@@ -150,7 +150,7 @@ function Profil() {
           <input
       
             type="text"
-            className="form-control "
+            className="form-control fw-bold "
             placeholder="nama belakang"
          
             {...register("last_name")}

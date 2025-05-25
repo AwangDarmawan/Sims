@@ -7,7 +7,7 @@ function Navbar() {
   return (
     <>
        <nav className="navbar-wrapper border-bottom container">
-        <Link to={"/home"} className="text-decoration-none">
+        <Link to={"/"} className="text-decoration-none">
           <div className="navbar-brand ">
             <img src={logo} alt="img"className="logo1" />
             <label className="txt-Sims">SIMS PPBO</label>
@@ -26,7 +26,7 @@ function Navbar() {
           <FontAwesomeIcon icon={faUser}  className="text-white"/> 
           <label className="label" >Akun</label>
           </Link>
-          <Link to={"/home"} className=" text-decoration-none d-flex flex-column align-items-center">
+          <Link to={"/beranda"} className=" text-decoration-none d-flex flex-column align-items-center">
           <FontAwesomeIcon icon={faHome}  className="text-white"/> 
           <label className="label" >Beranda</label>
           </Link>

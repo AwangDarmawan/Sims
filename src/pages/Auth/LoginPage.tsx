@@ -38,7 +38,7 @@ const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
     if (token) {
-      navigate("/home"); 
+      navigate("/beranda"); 
     }
   }, [token, navigate]);
     

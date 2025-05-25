@@ -22,10 +22,10 @@ function App() {
       <Route path="/register" element={<RegisterPage />} />
 
       <Route element={<MainLayout/>}>
-        <Route path="/home" element={<HomePage/>} />
+        <Route path="/beranda" element={<HomePage/>} />
         <Route path="/topup" element={<TopupPage />} />
         <Route path="/transaksi" element={<HistoryPage />} />
-        <Route path="/pembayaran/:service_name" element={<PembayaranPage />} />
+        <Route path="/pembayaran/:service_code" element={<PembayaranPage />} />
       </Route>
 
       <Route element={<NavbarOnlyLayout/>}>

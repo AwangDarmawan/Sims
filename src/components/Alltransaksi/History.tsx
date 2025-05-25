@@ -1,5 +1,6 @@
 // import "../Style/CardHistori.css"
 function History() {
+  
   return (
     <>
        <div className='container'>
@@ -9,10 +10,10 @@ function History() {
         <div className="my-1 txt-Rp border px-5 pt-3 d-flex justify-content-between  rounded-1" >
         <div className='flex-column'>
          
-            <span className='text-secondary txt-tgl ms-2'>item.created_on</span>
+            <span className='text-secondary txt-tgl ms-2'>created_on</span>
                 
           </div>
-          <span className='text-black font-bold  txt-tgl '>item.transaction_type</span>
+          <span className='text-black font-bold  txt-tgl '>transaction_type</span>
         </div>
        
         </div>

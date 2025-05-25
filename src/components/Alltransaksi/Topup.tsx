@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useAppDispatch, useAppSelector } from "../../utils/hook";
 import { postTopUp } from "../../features/transaksiSlice";
 
-import { topupSchema } from "./TopupSchema";
+import { topupSchema } from "./topupSchema";
 import { formatRupiah, parseRupiah } from "../../utils/rupiah";
 
 type FormData = {
@@ -13,7 +13,7 @@ type FormData = {
 
 function Topup() {
   const dispatch = useAppDispatch();
-  const { loading, error } = useAppSelector((state) => state.transaksi);
+  const { loading} = useAppSelector((state) => state.transaksi);
 
   const {
     control,
@@ -73,7 +73,7 @@ function Topup() {
             >
               {loading ? "Loading..." : "Top Up"}
             </button>
-            {error && <small className="text-danger">{error}</small>}
+            {/* {error && <small className="text-danger">{error}</small>} */}
           </div>
 
           <div className="col-lg-5 col-md-4 col-10">

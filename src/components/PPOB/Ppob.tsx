@@ -25,16 +25,18 @@ function Ppob() {
         <div className='row item-center'>
           {Ppobs.map((item: IApiPpob , index: number) => (
         <div className='col-lg-1 col-md-2 col-sm-4  text-center' key={index}>
-          <Link  to={`/pembayaran/${item.service_name}`} 
-             state={{ icon: item.service_icon, name: item.service_name , 
-            //  tarif: item.service_tariff 
-             tarif: item.service_tariff
+          <Link  to={`/pembayaran/${item.service_code}`} 
+             state=
+             {{ icon: item.service_icon, 
+              name: item.service_name , 
+               tarif: item.service_tariff
              }}>
             <img src={item.service_icon} alt="" />
             
             </Link>
             {/* <p>{item.service_code}</p> */}
-            <p className="font-bold" style={{ fontSize: "0.6rem", fontWeight:"semi-bold" }}>{item.service_code}</p>
+            <p className="font-bold" style={{ fontSize: "0.6rem", fontWeight:"semi-bold" }}>
+              {item.service_code}</p>
             {/* <p>{item.service_tariff}</p> */}
             
             </div>

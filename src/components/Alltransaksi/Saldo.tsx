@@ -14,7 +14,7 @@ function Saldo() {
     const dispatch = useAppDispatch();
   const { data:profile ,loading:loadingProfile , error:errorProfile } = useAppSelector((state) => state.profile);
 
-  const { data: saldo, error: errorSaldo } = useAppSelector(
+  const { data: saldo } = useAppSelector(
     (state) => state.transaksi
   );
 
@@ -29,7 +29,7 @@ function Saldo() {
 
       if (loadingProfile) return <p>Loading...</p>;
   if (errorProfile) return <p style={{ color: "red" }}>{errorProfile}</p>;
-   if (errorSaldo) return <p style={{ color: "red" }}>{errorSaldo}</p>;
+  //  if (errorSaldo) return <p style={{ color: "red" }}>{errorSaldo}</p>;
 
   console.log("photo bray",profile?.profile_image)
   return (
