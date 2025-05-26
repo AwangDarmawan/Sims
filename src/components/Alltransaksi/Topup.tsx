@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from "../../utils/hook";
 import { postTopUp } from "../../features/transaksiSlice";
 
 import { topupSchema } from "./topupSchema";
-import { formatRupiah, parseRupiah } from "../../utils/rupiah";
+import { formatRupiah, parseRupiah } from "../../utils/formatRupiah";
 
 type FormData = {
   amount: string;

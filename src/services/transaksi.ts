@@ -9,13 +9,6 @@ export interface TopUpRequest {
 }
 
 
-// export interface TransaksiResponse <T>{
-//   status: number;
-//   message: string;
-//   // data: SaldoUser; 
-//     data: T;
-// }
-
 // =========================
 // PEMBAYARAN
 // =========================
@@ -39,9 +32,22 @@ export interface TransaksiResponse <T>{
   message: string;
   // data: SaldoUser; 
     data: T;
+    // dataHistor: TransactionData[]
 }
 
+export interface TransactionData {
+  invoice_number: string;
+  transaction_type: string;
+  description: string;
+  total_amount: number;
+  created_on: string;
+}
 
+export interface HistoryList {
+  offset: number;
+  limit: number;
+  records: TransactionData[];
+}
 
 
 export const ApiGetSaldo = async (): Promise<TransaksiResponse<SaldoUser>> => {
@@ -57,5 +63,15 @@ export const ApiPostPembayaran = async (
   data: PembayaranRequest
 ): Promise<TransaksiResponse<PembayaranResponse>> => {
   const response = await api.post<TransaksiResponse<PembayaranResponse>>("/transaction", data);
+  return response.data;
+};
+
+export const ApiGetHistory = async (
+  offset: number,
+  limit: number
+): Promise<TransaksiResponse<HistoryList>> => {
+  const response = await api.get<TransaksiResponse<HistoryList>>(
+    `/transaction/history?offset=${offset}&limit=${limit}`
+  );
   return response.data;
 };

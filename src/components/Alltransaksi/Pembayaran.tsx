@@ -4,7 +4,7 @@
 import { useLocation, useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../utils/hook";
 import { postPembayaran } from "../../features/transaksiSlice";
-import { formatRupiah } from "../../utils/rupiah";
+import { formatRupiah } from "../../utils/formatRupiah";
 
 function Pembayaran() {
   const dispatch = useAppDispatch();
