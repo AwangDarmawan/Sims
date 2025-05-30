@@ -30,9 +30,7 @@ export interface PembayaranResponse {
 export interface TransaksiResponse <T>{
   status: number;
   message: string;
-  // data: SaldoUser; 
     data: T;
-    // dataHistor: TransactionData[]
 }
 
 export interface TransactionData {

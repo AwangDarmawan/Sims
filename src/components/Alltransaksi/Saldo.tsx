@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-// import profilIMG from "../../assets/Profile Photo.png";
 import "../../styles/Home.css"
 import { EyeFill, EyeSlashFill } from "react-bootstrap-icons";
 import { useAppDispatch, useAppSelector } from "../../utils/hook"; 

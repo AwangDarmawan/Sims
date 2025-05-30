@@ -3,8 +3,7 @@ import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useAppDispatch, useAppSelector } from "../../utils/hook";
 import { postTopUp } from "../../features/transaksiSlice";
-
-import { topupSchema } from "./topupSchema";
+import { topupSchema } from "./topup-schema";
 import { formatRupiah, parseRupiah } from "../../utils/formatRupiah";
 
 type FormData = {

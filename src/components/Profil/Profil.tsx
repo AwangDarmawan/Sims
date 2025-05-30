@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from "../../utils/hook";
 import { useEffect, useState, type ChangeEvent } from "react";
 import { fetchProfile, updateName , uploadProfileImage} from "../../features/profilSlice";
 import { useForm } from "react-hook-form";
-import { profilShema } from "./profilSchema";
+import { profilShema } from "./profil-schema";
 import { yupResolver } from '@hookform/resolvers/yup';
 
 interface FormValues {
