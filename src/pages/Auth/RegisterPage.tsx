@@ -11,7 +11,7 @@ import { faSpinner, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useForm } from 'react-hook-form';
 import { ApiRegister, type IRegisterForm } from "../../services/Auth";
-import { registerSchema } from "./Validationform"
+import { registerSchema } from "./validation-form"
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import { handleAxiosError } from '../../utils/errorhandle';

@@ -8,7 +8,7 @@ import logo from '../../assets/Logo.png';
 import Ilus from '../../assets/Illustrasi Login.png';
 import key from '../../assets/key.png';
 import type { ILoginForm } from '../../services/Auth';
-import { loginSchema } from "./Validationform"
+import { loginSchema } from "./validation-form"
 import { yupResolver } from '@hookform/resolvers/yup';
 import { faSpinner} from '@fortawesome/free-solid-svg-icons';
 import { useForm } from 'react-hook-form';
