@@ -1,7 +1,7 @@
 // src/services/axiosInstance.ts
 import axios from "axios";
 
-const baseUrl = "https://take-home-test-api.nutech-integrasi.com"
+const baseUrl = import.meta.env.VITE_BASE_URL;
 
 const api = axios.create({
   baseURL: baseUrl,
