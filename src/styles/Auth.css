@@ -88,5 +88,12 @@
     .account-block {
       display: none;
     }
+    
+  .fm .form-control-login{
+    width: 100%;
+    background: transparent;
+    border:none;
+    font-size :80%;
+  }
   }
   
