@@ -5,9 +5,8 @@ import "../../styles/Auth.css";
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/Logo.png';
 import Ilus from '../../assets/Illustrasi Login.png'
-import key from '../../assets/key.png';
 import { useState } from "react";
-import { faSpinner, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faKey, faSpinner, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useForm } from 'react-hook-form';
 import { ApiRegister, type IRegisterForm } from "../../services/Auth";
@@ -62,7 +61,7 @@ function RegisterPage() {
               <h3 className="txtmasuk font-bold text-center ">Lengkapi Data Untuk<br/>
                  Membuat Akun </h3>
                  
-              <form onSubmit={handleSubmit(onSubmit)} className="fm my-2 ">
+              <form onSubmit={handleSubmit(onSubmit)} className="fm my-5 ">
                  
                   <div className="input-form-user border  ps-3">
                     <FontAwesomeIcon icon={faUser} />
@@ -107,7 +106,7 @@ function RegisterPage() {
 
 
                   <div className="input-form-user  border ps-3 ">
-                  <img  src={key} alt="key" className ="key" />
+                    <FontAwesomeIcon icon={faKey} />
                     <input
                       type={showPassword ? "text" : "password"}
                       className="form-control-login py-2"
@@ -123,7 +122,7 @@ function RegisterPage() {
 
 
                   <div className="input-form-user  border  ps-3">
-                  <img  src={key} alt="key" className ="key" />
+                 <FontAwesomeIcon icon={faKey} />
                     <input
                       type={ConfshowPassword ? "text" : "password"}
                       placeholder="Konfirmasi password"

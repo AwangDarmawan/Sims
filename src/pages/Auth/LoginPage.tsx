@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faUser,faKey } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { EyeFill, EyeSlashFill } from "react-bootstrap-icons";
+import { EyeFill, EyeSlashFill,} from "react-bootstrap-icons";
 import "../../styles/Auth.css";
 import { Link, useNavigate} from 'react-router-dom';
 import logo from '../../assets/Logo.png';
 import Ilus from '../../assets/Illustrasi Login.png';
-import key from '../../assets/key.png';
 import type { ILoginForm } from '../../services/Auth';
 import { loginSchema } from "./validation-form"
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -70,7 +69,7 @@ const [showPassword, setShowPassword] = useState(false);
 
 
                   <div className="input-form-user  border d-flex gap-3  ps-3 ">
-                  <img  src={key} alt="key" className ="key " />
+                   <FontAwesomeIcon icon={faKey} />
                     <input
                       type={showPassword ? "text" : "password"}
                       className="form-control-login py-2"
