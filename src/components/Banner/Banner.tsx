@@ -32,7 +32,7 @@ if (loadingBanner) return <p>Loading banner...</p>;
           <img
             src={item.banner_image}
             alt={item.banner_name}
-            className="categori rounded d-flex align-items-center justify-content-center mx-auto"
+            className="categori rounded d-flex align-items-center justify-content-center mx-auto mb-5"
            
           />
         

@@ -77,7 +77,7 @@ const [showPassword, setShowPassword] = useState(false);
                       autoComplete="off" 
                        {...register('password')} 
                     />
-                    <i className="icon-show" onClick={() => setShowPassword(!showPassword)}>{showPassword ? <EyeSlashFill/> : <EyeFill/>}</i>
+                    <i className="icon-show bg-transparent" onClick={() => setShowPassword(!showPassword)}>{showPassword ? <EyeSlashFill/> : <EyeFill/>}</i>
                   </div>
                   <p className='text-danger '>{errors.password?.message}</p>
                   

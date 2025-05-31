@@ -76,7 +76,7 @@ function History() {
         ))}
         </div>
 
-       <div className="d-flex justify-content-center mt-3  gap-2">
+       <div className="d-flex justify-content-center gap-2 mb-5">
 
        <button className="bg-transaparant text-danger fw-bold"
          onClick={handleShowBack} disabled={loading || offset === 0}>
